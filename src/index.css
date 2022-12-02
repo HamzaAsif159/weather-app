@@ -1,0 +1,16 @@
+:root {
+  --primary: #112b50;
+  --secondary: #091f39;
+  --smoke: #eef3f3;
+  --offwhite: #fafcfe;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form {
+  display: inline-block;
+}
