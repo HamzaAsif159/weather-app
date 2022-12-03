@@ -14,3 +14,35 @@
 .form {
   display: inline-block;
 }
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leftTop {
+  margin-top: 2rem;
+  display: flex;
+}
+
+.leftLower {
+  margin-top: 5rem;
+}
+
+.weatherDetails {
+  display: flex;
+  max-width: 500px;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 10px;
+}
+
+.detailBox {
+  background-color: var(--smoke);
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
