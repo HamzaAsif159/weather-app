@@ -45,7 +45,7 @@ function App() {
               <img src="/icons/wind.png" a lt="wind-icon" className="icon" />
 
               <h3 className="figureHead">Wind</h3>
-              <h3 className="figure">{data.wind.speed} mph</h3>
+              <h3 className="figure">mph</h3>
             </div>
             <div className="detailBox">
               <img
@@ -63,7 +63,7 @@ function App() {
                 className="icon"
               />
               <h3 className="figureHead">Pressure</h3>
-              <h3 className="figure">45</h3>
+              <h3 className="figure"></h3>
             </div>
             <div className="detailBox">
               <img
@@ -78,7 +78,7 @@ function App() {
         </div>
       </div>
       <div className="rightSide">
-        <h1 className="city">{data.name}</h1>
+        <h1 className="city">{data.name} </h1>
         <div className="cityWeather">
           <h1>57.3 F</h1>
           <h3>Clouds</h3>
