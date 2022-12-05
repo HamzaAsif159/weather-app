@@ -3,6 +3,7 @@
   --secondary: #091f39;
   --smoke: #eef3f3;
   --offwhite: #fafcfe;
+  --gray: #98989b;
 }
 
 * {
@@ -11,20 +12,50 @@
   box-sizing: border-box;
 }
 
+.App {
+  display: flex;
+}
+
 .form {
   display: inline-block;
 }
 
 .leftSide {
+  flex: 2;
   display: flex;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 }
 
 .leftTop {
   margin-top: 2rem;
   display: flex;
+  gap: 1rem;
+}
+
+.dateTime {
+  font-weight: 600;
+}
+
+.searchBar {
+  background: var(--smoke);
+  height: 30px;
+  outline: none;
+  border: none;
+  padding: 8px;
+}
+
+.searchBtn {
+  margin-left: 10px;
+  background-color: var(--smoke);
+  outline: none;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 600;
 }
 
 .leftLower {
@@ -33,16 +64,71 @@
 
 .weatherDetails {
   display: flex;
-  max-width: 500px;
+  max-width: 400px;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .detailBox {
   background-color: var(--smoke);
-  width: 200px;
+  width: 400px;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
+  position: relative;
+}
+
+.figure {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.figureHead {
+  color: var(--gray);
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.icon {
+  height: 30px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.rightSide {
+  flex: 1;
+  height: 100vh;
+  background-color: var(--primary);
+  color: whitesmoke;
+  padding: 20px;
+}
+
+.city {
+  font-weight: 400;
+}
+
+.cityWeather {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.cityWeather h1 {
+  font-size: 4rem;
+}
+
+.sunSetContainer {
+  margin-top: 20px;
+}
+
+.sunSet {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #294269;
+  padding: 1rem 1.2rem;
+  border-radius: 0.6rem;
+  border: 1px #6180b9 solid;
 }
