@@ -8,16 +8,15 @@ function App() {
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=1a6853c7595c5c99794891a5975108d4&units=metric`
 
+  function handleChange(event) {
+    setLocation(event.target.value)
+  }
+
   function searchLocation(e) {
     e.preventDefault()
     axios.get(url).then((res) => setData(res.data))
-
-    console.log(data)
     setLocation("")
-  }
-
-  function handleChange(event) {
-    setLocation(event.target.value)
+    console.log(data)
   }
 
   function timeFormat(timestamp) {
