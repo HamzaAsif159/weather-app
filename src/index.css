@@ -153,4 +153,9 @@
   .detailBox {
     max-width: 350px;
   }
+
+  .leftSide,
+  .rightSide {
+    height: 100%;
+  }
 }
