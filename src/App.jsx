@@ -6,19 +6,31 @@ function App() {
   const [location, setLocation] = useState("")
   const [data, setData] = useState("")
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=1a6853c7595c5c99794891a5975108d4`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=1a6853c7595c5c99794891a5975108d4&units=metric`
 
   function searchLocation(e) {
     e.preventDefault()
     axios.get(url).then((res) => setData(res.data))
 
     console.log(data)
+    setLocation("")
   }
 
   function handleChange(event) {
     setLocation(event.target.value)
-    console.log(event.target.value)
   }
+
+  function timeFormat(timestamp) {
+    var date = new Date(timestamp * 1000)
+
+    var hours = date.getHours()
+
+    var minutes = "0" + date.getMinutes()
+
+    var seconds = "0" + date.getSeconds()
+    return hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2)
+  }
+
   return (
     <div className="App">
       <div className="leftSide">
@@ -43,9 +55,12 @@ function App() {
           <div className="weatherDetails">
             <div className="detailBox">
               <img src="/icons/wind.png" a lt="wind-icon" className="icon" />
-
               <h3 className="figureHead">Wind</h3>
-              <h3 className="figure">mph</h3>
+              {data.main ? (
+                <h3 className="figure">{data.main.temp} mph</h3>
+              ) : (
+                <h3 className="figure">-</h3>
+              )}
             </div>
             <div className="detailBox">
               <img
@@ -54,7 +69,13 @@ function App() {
                 className="icon"
               />
               <h3 className="figureHead">Highest/Lowest</h3>
-              <h3 className="figure">55/45</h3>
+              {data.main ? (
+                <h3 className="figure">
+                  {data.main.temp_max}/{data.main.temp_min}
+                </h3>
+              ) : (
+                <h3 className="figure">-</h3>
+              )}
             </div>
             <div className="detailBox">
               <img
@@ -63,7 +84,11 @@ function App() {
                 className="icon"
               />
               <h3 className="figureHead">Pressure</h3>
-              <h3 className="figure"></h3>
+              {data.main ? (
+                <h3 className="figure">{data.main.pressure} Pa</h3>
+              ) : (
+                <h3 className="figure">-</h3>
+              )}
             </div>
             <div className="detailBox">
               <img
@@ -72,21 +97,42 @@ function App() {
                 className="icon"
               />
               <h3 className="figureHead">Humidity</h3>
-              <h3 className="figure">90%</h3>
+              {data.main ? (
+                <h3 className="figure">{data.main.humidity}</h3>
+              ) : (
+                <h3 className="figure">-</h3>
+              )}
             </div>
           </div>
         </div>
       </div>
       <div className="rightSide">
-        <h1 className="city">{data.name} </h1>
+        {data.name ? (
+          <h1 className="city">{data.name}</h1>
+        ) : (
+          <h1 className="city">-</h1>
+        )}
+
         <div className="cityWeather">
-          <h1>57.3 F</h1>
-          <h3>Clouds</h3>
+          {data.main ? <h1>{data.main.temp} C</h1> : <h1>-</h1>}
+          {data.weather ? <h3>{data.weather[0].main}</h3> : <h3>-</h3>}
         </div>
         <div className="sunSetContainer">
           <h3>Sunrise & Sunset</h3>
-          <div className="sunSet">Sunrise at 6:00</div>
-          <div className="sunSet">Sunset at 6:00</div>
+          {data?.sys?.sunrise ? (
+            <div className="sunSet">
+              Sunrise at {timeFormat(data.sys.sunrise)} (PKT)
+            </div>
+          ) : (
+            <div className="sunSet">Sunrise at -</div>
+          )}
+          {data?.sys?.sunset ? (
+            <div className="sunSet">
+              Sunset at {timeFormat(data.sys.sunset)} (PKT)
+            </div>
+          ) : (
+            <div className="sunSet">Sunset at -</div>
+          )}
         </div>
       </div>
     </div>

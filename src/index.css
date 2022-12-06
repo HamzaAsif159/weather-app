@@ -132,3 +132,21 @@
   border-radius: 0.6rem;
   border: 1px #6180b9 solid;
 }
+
+@media screen and (max-width: 650px) {
+  .App {
+    display: block;
+  }
+
+  .leftSide {
+    padding: 10px;
+  }
+
+  .leftTop {
+    display: block;
+  }
+
+  .dateTime {
+    margin-bottom: 15px;
+  }
+}
