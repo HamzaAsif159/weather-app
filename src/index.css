@@ -151,10 +151,6 @@
   }
 
   .detailBox {
-    max-width: 300px;
-  }
-
-  .rightSide {
-    height: 60vh;
+    max-width: 350px;
   }
 }
