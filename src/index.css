@@ -149,4 +149,12 @@
   .dateTime {
     margin-bottom: 15px;
   }
+
+  .detailBox {
+    max-width: 300px;
+  }
+
+  .rightSide {
+    height: 60vh;
+  }
 }
